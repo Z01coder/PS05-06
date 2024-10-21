@@ -25,7 +25,7 @@ class A1stillumparsSpider(scrapy.Spider):
         illuminations = response.css('div._Ud0k')
         for illum in illuminations:
             name = illum.css('div.lsooF span::text').get()
-            price = illum.css('div.pY3d2 span::text').get().replace(' ', '').replace('₽', '')  # Убираем пробелы и символ рубля
+            price = illum.css('div.pY3d2 span::text').get()
             url = response.urljoin(illum.css('a::attr(href)').get())
 
             # Запись данных в CSV
